@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% include "includes/head_references.html" %}
+</head>
+
+<body>
+
+<!-- Header -->
+{% include "includes/header.html" %}
+
+
+{% block content %}
+
+
+{% endblock %}
+
+
+{% include "includes/footer.html" %}
+{% include "includes/footer_references.html" %}
+
+</body>
+</html>

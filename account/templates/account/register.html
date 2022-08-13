@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+    <!-- Breadcrumb Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <nav class="breadcrumb bg-light mb-30">
+                    <a class="breadcrumb-item text-dark" href="#">Home</a>
+                    <span class="breadcrumb-item active">Login</span>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Contact Start -->
+    <div class="container-fluid">
+        <h2 align="center"> Register</h2>
+        <div class="row px-xl-5">
+            <div class="col-lg-7 mb-5" style="margin: auto">
+                <div class="contact-form bg-light p-30">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div align="center">
+                            <button class="btn btn-primary py-2 px-4" type="submit">Register
+                            </button>
+                        </div>
+                        <div align="center" style="padding: 15px">
+                            <a class="txt1" href="{% url "account:login" %}">
+                                Login!
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+{% endblock %}
+

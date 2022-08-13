@@ -1,0 +1,10 @@
+<div class="nav-item dropdown dropright">
+    {% for cat in cat.children.all %}
+        <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+            <a href="" class="dropdown-item">{{ cat.name }}</a>
+            {% if cat.children.all %}
+                {% include "includes/category_loop.html" %}
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

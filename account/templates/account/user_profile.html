@@ -64,14 +64,20 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{% static "assets/img/user2-160x160.jpg" %}" class="img-circle elevation-2"
-                         alt="User Image">
+                    {% if user.image %}
+                        <img src="{{ user.image.url }}" class="img-circle elevation-2"
+                        >
+                    {% else %}
+                        <img src="{% static "img/803b53b4c8c434f156bc9dc060096d83.png" %}"
+                             class="img-circle elevation-2"
+                             alt="User image">
+                    {% endif %}
                 </div>
                 <div class="info">
-                    {% if request.user.username %}
+                    {% if user.username %}
                         <a href="#" class="d-block">{{ user.username }}</a>
                         {% else %}
-                        <a href="#" class="d-block">{{ user.get_full_name }}</a>
+                            <a href="#" class="d-block">{{ user.get_full_name }}</a>
                     {% endif %}
 
                 </div>
@@ -88,6 +94,15 @@
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 پروفایل کاربری
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item has-treeview ">
+                        <a href="{% url "account:password_change" %}" class="nav-link ">
+                            <i class="nav-icon fas fa-lock"></i>
+                            <p>
+                                تغییر رمز عبور
                             </p>
                         </a>
                     </li>
@@ -132,26 +147,26 @@
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="col-6">
-                                        {{ form.username|as_crispy_field }}
+                                        {{ form.username }}
                                     </div>
                                     <div class="col-6">
-                                        {{ form.email|as_crispy_field }}
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="my-4">تغییرگذرواژه:</label>
-                                        <span><a href="{% url "account:password_change" %}">برای تغییر گذرواژه کلیک کنید.</a></span>
+                                        {{ form.email }}
                                     </div>
                                     <div class="col-6">
-                                        {{ form.first_name|as_crispy_field }}
+                                        {{ form.first_name}}
                                     </div>
                                     <div class="col-6">
-                                        {{ form.last_name|as_crispy_field }}
+                                        {{ form.last_name }}
                                     </div>
                                     <div class="col-6">
-                                        {{ form.phone|as_crispy_field }}
+                                        {{ form.phone }}
+                                    </div>
+                                    <div class="col-6">
+                                        {{ form.image }}
                                     </div>
                                 </div>
-                                <button class="btn btn-success" href="{{ form.get_absolute_url }}"> ویرایش اطلاعات</button>
+                                <button class="btn btn-success" href="{{ form.get_absolute_url }}"> ویرایش اطلاعات
+                                </button>
                             </form>
                         </div>
                     </div>

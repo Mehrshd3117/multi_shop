@@ -25,13 +25,14 @@
                             {{ form.as_p }}
 
                         </div>
+
                         <div align="center" style="padding: 15px">
                             <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Login
                             </button>
                         </div>
                         <div align="center" style="padding: 15px">
-                            <a  href="{% url "account:register" %}">
-                                Register!
+                            <a  href="{% url "account:password_reset" %}">
+                                forgot password!
                             </a>
                         </div>
                         {% csrf_token %}

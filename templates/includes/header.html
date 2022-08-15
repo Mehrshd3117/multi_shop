@@ -14,9 +14,9 @@
                     {% if request.user.is_authenticated %}
                         {% if request.user.first_name %}
                             <a class="dropdown-item"
-                               href="{% url "account:user_edit" %}">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+                               href="{% url "account:user_edit" %}">{{ user.first_name }} {{ user.last_name }}</a>
                         {% else %}
-                            <a class="dropdown-item" href="{% url "account:user_edit" %}">{{ request.user.username }}</a>
+                            <a class="dropdown-item" href="{% url "account:user_edit" %}">{{ user.username }}</a>
                         {% endif %}
                         <a class="dropdown-item" href="{% url "account:logout" %}">Logout</a>
                     {% else %}
